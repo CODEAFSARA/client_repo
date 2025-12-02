@@ -23,7 +23,7 @@ jobs:
       - name: Deploy CloudFormation Template
         run: |
           aws cloudformation deploy \
-            --template-file cloudformation/table.yaml \
+            --template-file dynamodb-table.yaml \
             --stack-name CountriesStack \
             --capabilities CAPABILITY_NAMED_IAM
 
