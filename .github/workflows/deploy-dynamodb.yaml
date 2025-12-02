@@ -1,0 +1,34 @@
+name: Deploy DynamoDB and Insert Items
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Deploy CloudFormation Template
+        run: |
+          aws cloudformation deploy \
+            --template-file cloudformation/table.yaml \
+            --stack-name CountriesStack \
+            --capabilities CAPABILITY_NAMED_IAM
+
+      - name: Install Python Dependencies
+        run: pip install boto3
+
+      - name: Insert Items into DynamoDB
+        run: python scripts/insert_items.py
