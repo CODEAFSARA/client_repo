@@ -3,7 +3,7 @@ import json
 import math
 
 TABLE_NAME = "CountriesTable"
-ITEMS_FILE = "data/items.json"
+ITEMS_FILE = "items.json"
 
 def batch_write(table, items):
     with table.batch_writer(overwrite_by_pkeys=["countrycode"]) as batch:
