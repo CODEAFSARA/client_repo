@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "DynamoDB table for countries"
+
+Parameters:
+  TableName:
+    Type: String
+    Default: "CountriesTable"
+    Description: "DynamoDB table name"
+
+Resources:
+  CountriesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref TableName
+      AttributeDefinitions:
+        - AttributeName: "countrycode"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "countrycode"
+          KeyType: "HASH"
+      BillingMode: PAY_PER_REQUEST
+
+Outputs:
+  TableName:
+    Value: !Ref TableName

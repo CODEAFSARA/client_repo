@@ -1,0 +1,22 @@
+[
+  {
+    "countrycode": "IN",
+    "name": "India",
+    "region": "Asia"
+  },
+  {
+    "countrycode": "US",
+    "name": "United States",
+    "region": "North America"
+  },
+  {
+    "countrycode": "DE",
+    "name": "Germany",
+    "region": "Europe"
+  },
+  {
+    "countrycode": "BR",
+    "name": "Brazil",
+    "region": "South America"
+  }
+]
