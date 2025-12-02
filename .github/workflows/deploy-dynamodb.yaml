@@ -31,4 +31,4 @@ jobs:
         run: pip install boto3
 
       - name: Insert Items into DynamoDB
-        run: python scripts/insert-items.py
+        run: python insert-items.py
